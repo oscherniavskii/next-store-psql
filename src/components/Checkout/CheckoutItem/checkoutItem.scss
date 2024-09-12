@@ -1,0 +1,134 @@
+.checkout-item {
+	padding: 10px 20px;
+	background-color: var(--items-bg-color);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
+	transition: box-shadow 0.4s ease-in-out;
+	will-change: box-shadow;
+	display: grid;
+	grid-template-columns: auto 4fr 1fr 0.5fr 1fr auto;
+	column-gap: 15px;
+	align-items: center;
+	font-weight: 600;
+	&:hover {
+		box-shadow: 3px 3px 7px 0px rgba(0, 0, 0, 0.3);
+	}
+	&__cover {
+	}
+	&__image {
+		height: 70px;
+		position: relative;
+		display: block;
+		text-align: center;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	&__info {
+	}
+	&__name {
+		display: block;
+	}
+	&__category {
+		font-size: 14px;
+		color: var(--secondary-color);
+		display: block;
+	}
+	&__price {
+		text-align: center;
+	}
+	&__quantity {
+		text-align: center;
+	}
+	&__total {
+		text-align: center;
+	}
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+	&__icon {
+		width: 24px;
+		height: 24px;
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			path {
+				stroke: var(--red-text);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.checkout-item {
+		padding: 10px 15px;
+		grid-template-columns: auto 1fr auto 1fr auto;
+		row-gap: 10px;
+		position: relative;
+		&__cover {
+			grid-column: 1 / 2;
+			grid-row: 1 / 3;
+		}
+		&__info {
+			grid-column: 2 / 5;
+			grid-row: 1 / 2;
+			text-align: center;
+			padding-right: 10px;
+		}
+		&__price {
+			grid-column: 2 / 3;
+			grid-row: 2 / 3;
+		}
+		&__quantity {
+			grid-column: 3 / 4;
+			grid-row: 2 / 3;
+		}
+		&__total {
+			grid-column: 4 / 5;
+			grid-row: 2 / 3;
+		}
+		&__btn {
+			position: absolute;
+			top: 7px;
+			right: 10px;
+		}
+	}
+}
+
+@media screen and (max-width: 680px) {
+	.checkout-item {
+		column-gap: 5px;
+		font-size: 14px;
+		&__category {
+			font-size: 12px;
+		}
+		&__icon {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+@media screen and (max-width: 460px) {
+	.checkout-item {
+		font-size: 13px;
+		column-gap: 7px;
+		&__image {
+			height: 50px;
+			width: 50px;
+		}
+		&__category {
+			font-size: 12px;
+		}
+		&__icon {
+			width: 16px;
+			height: 16px;
+		}
+	}
+}

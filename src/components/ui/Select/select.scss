@@ -1,0 +1,63 @@
+.select {
+	width: max-content;
+	position: relative;
+	&__btn {
+		display: flex;
+		align-items: center;
+		b {
+			margin-right: 5px;
+			font-weight: 600;
+		}
+		svg {
+			margin-left: 5px;
+			polygon {
+				fill: var(--secondary-color);
+			}
+		}
+	}
+	&__list {
+		position: absolute;
+		right: 0;
+		top: calc(100% + 5px);
+		z-index: 20;
+		width: max-content;
+		border-radius: 8px;
+		background-color: var(--secondary-color);
+		overflow: hidden;
+		padding: 10px;
+		transition: opacity 0.3s ease-in-out;
+	}
+	&__item {
+		display: block;
+		width: 100%;
+		padding: 3px 10px;
+		text-align: center;
+		transition: color 0.3s ease-in-out;
+		color: var(--white-text);
+		transform: translateX(100%);
+		opacity: 0;
+		animation: slideInRight 0.3s forwards;
+		&--active {
+			& > button {
+				font-weight: 600;
+				color: var(--primary-color);
+			}
+		}
+		@for $i from 1 through 6 {
+			&:nth-child(#{$i}) {
+				animation-delay: 0.05s * $i;
+			}
+		}
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}

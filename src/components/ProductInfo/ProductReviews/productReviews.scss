@@ -1,0 +1,24 @@
+.product-reviews {
+	padding-top: 40px;
+	&__items {
+		padding-bottom: 30px;
+	}
+	&__form {
+	}
+	&__auth {
+		color: var(--secondary-color);
+		a {
+			color: var(--primary-color);
+			padding-left: 3px;
+			transition: opacity 0.3s ease-in-out;
+			&:hover {
+				opacity: 0.6;
+			}
+		}
+	}
+	&__empty {
+		color: var(--secondary-color);
+		font-weight: 600;
+		margin-bottom: 30px;
+	}
+}

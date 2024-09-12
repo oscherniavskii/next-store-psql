@@ -1,0 +1,156 @@
+.users-list {
+	&__item {
+		padding: 10px 10px;
+		border-radius: 8px;
+		background-color: var(--items-bg-color);
+		display: grid;
+		align-items: start;
+		grid-template-columns: repeat(4, 1fr) 50px;
+		column-gap: 30px;
+		row-gap: 5px;
+		color: var(--secondary-color);
+		font-weight: 600;
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+	}
+	&__name {
+		font-size: 18px;
+		color: var(--primary-color);
+	}
+	&__email {
+	}
+	&__admin {
+		&--true {
+			color: var(--primary-color);
+		}
+	}
+	&__active {
+		span {
+			&:last-child {
+				color: var(--red-text);
+			}
+		}
+		&--true {
+			span {
+				&:last-child {
+					color: var(--green-text);
+				}
+			}
+		}
+	}
+	&__orders {
+	}
+	&__total {
+	}
+	&__fav {
+	}
+	&__actions {
+		grid-column: 5 / 6;
+		grid-row: 1 / 3;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		column-gap: 10px;
+	}
+	&__switch {
+		width: 18px;
+		height: 18px;
+		flex-shrink: 0;
+		margin-bottom: 1px;
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			opacity: 0.2;
+		}
+		&:hover {
+			svg {
+				opacity: 1;
+				path {
+					fill: var(--primary-color);
+				}
+				polygon {
+					fill: var(--primary-color);
+				}
+			}
+		}
+		&.admin {
+			svg {
+				opacity: 1;
+				path {
+					fill: var(--secondary-color);
+				}
+				polygon {
+					fill: var(--secondary-color);
+				}
+			}
+		}
+	}
+	&__empty {
+		color: var(--secondary-color);
+		font-weight: 600;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.users-list {
+		&__item {
+			padding: 8px 10px;
+			grid-template-columns: repeat(3, 1fr) 50px;
+			&:not(:last-child) {
+				margin-bottom: 12px;
+			}
+		}
+		&__name {
+			font-size: 16px;
+		}
+		&__actions {
+			grid-column: 4 / 5;
+			grid-row: 1 / 4;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.users-list {
+		&__item {
+			grid-template-columns: repeat(2, 1fr) 50px;
+		}
+		&__actions {
+			grid-column: 3 / 4;
+			grid-row: 1 / 5;
+		}
+		&__admin {
+			&--true {
+				color: var(--red-text);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.users-list {
+		&__item {
+			font-size: 12px;
+			row-gap: 3px;
+			column-gap: 10px;
+		}
+		&__name {
+			font-size: 14px;
+		}
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.users-list {
+		&__item {
+			grid-template-columns: repeat(1, 1fr) 50px;
+			row-gap: 0;
+		}
+		&__actions {
+			grid-column: 2 / 3;
+			grid-row: 1 / 8;
+		}
+	}
+}

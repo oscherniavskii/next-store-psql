@@ -1,0 +1,34 @@
+.page-loader {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	&__inner {
+		flex-grow: 1;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__icon {
+		svg {
+			margin: auto;
+			background: none;
+			display: block;
+			shape-rendering: auto;
+			circle {
+				&:nth-child(1) {
+					fill: var(--primary-color);
+				}
+				&:nth-child(2) {
+					fill: var(--secondary-color);
+				}
+				&:nth-child(3) {
+					fill: var(--primary-color);
+				}
+			}
+		}
+	}
+}

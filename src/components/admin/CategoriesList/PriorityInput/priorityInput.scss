@@ -1,0 +1,58 @@
+.priority-input {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+	position: relative;
+	&__inner {
+		display: flex;
+		align-items: center;
+		opacity: 0.4;
+		color: var(--secondary-color);
+		font-weight: 600;
+		font-size: 14px;
+		input {
+			width: 100%;
+			font-weight: 600;
+			color: var(--secondary-color);
+			padding: 2px 5px;
+			width: 50px;
+			font-size: 14px;
+			&:focus {
+				outline: none;
+			}
+		}
+		&--ok {
+			opacity: 1;
+		}
+	}
+	button {
+		position: absolute;
+		top: 100%;
+		left: 5px;
+		padding: 3px 8px;
+		background-color: var(--icon-secondary-color);
+		color: var(--secondary-color);
+		border-radius: 4px;
+		font-size: 12px;
+		font-weight: 600;
+		transition: all 0.2s ease-in-out;
+		&:hover {
+			color: var(--white-text);
+			background-color: var(--secondary-color);
+		}
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.priority-input {
+		column-gap: 8px;
+		&__inner {
+			font-size: 12px;
+			input {
+				width: 40px;
+				font-size: 12px;
+			}
+		}
+	}
+}

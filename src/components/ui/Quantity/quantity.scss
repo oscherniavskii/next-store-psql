@@ -1,0 +1,35 @@
+.quantity {
+	border: 1px solid var(--secondary-color);
+	display: flex;
+	align-items: center;
+	column-gap: 5px;
+	max-width: 150px;
+	&__btn {
+		width: 50px;
+		height: 30px;
+		font-size: 20px;
+		font-weight: 600;
+		&--minus {
+			border-right: 1px solid var(--secondary-color);
+		}
+		&--plus {
+			border-left: 1px solid var(--secondary-color);
+		}
+	}
+	&__input {
+		text-align: center;
+		font-size: 18px;
+		font-weight: 600;
+		background-color: transparent;
+		width: 100%;
+		outline: none;
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+}

@@ -1,0 +1,168 @@
+.product-info {
+	&__header {
+		position: relative;
+		padding-right: 35px;
+	}
+	&__title {
+		font-weight: 600;
+		font-size: 30px;
+		margin-bottom: 15px;
+		max-width: 850px;
+	}
+	&__favorite {
+		position: absolute;
+		top: 5px;
+		right: 0;
+	}
+	&__inner {
+		display: flex;
+		column-gap: 15px;
+		justify-content: space-between;
+	}
+	&__gallery {
+		flex: 0 1 28%;
+	}
+	&__body {
+		flex: 0 1 70%;
+		display: grid;
+		grid-template-columns: 1fr 250px;
+		column-gap: 15px;
+		align-content: start;
+	}
+	&__info {
+	}
+	&__category {
+		font-weight: 500;
+		margin-bottom: 5px;
+		a {
+			color: var(--secondary-color);
+		}
+	}
+	&__rating {
+		font-weight: 500;
+		margin-bottom: 5px;
+		display: flex;
+		align-items: center;
+		column-gap: 3px;
+	}
+	&__characteristics {
+		margin-bottom: 5px;
+		span.title {
+			font-weight: 500;
+			display: block;
+			margin-bottom: 5px;
+		}
+	}
+	&__nocharact {
+		opacity: 0.5;
+		font-size: 14px;
+	}
+	&__actions {
+	}
+	&__description {
+		grid-column: span 2;
+		width: 100%;
+		span {
+			font-weight: 500;
+			display: block;
+			margin-bottom: 3px;
+		}
+	}
+}
+
+.info-actions {
+	&__available {
+		text-align: center;
+	}
+	&__price {
+		font-weight: 700;
+		font-size: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		column-gap: 7px;
+		margin-bottom: 15px;
+		&--sale {
+			font-size: 24px;
+			.info-actions__current {
+				color: var(--primary-color);
+			}
+			.info-actions__old {
+				opacity: 0.7;
+				text-decoration: line-through;
+				font-size: 22px;
+			}
+		}
+	}
+	&__old {
+	}
+	&__current {
+	}
+	&__quantity {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__button {
+		padding-top: 30px;
+		padding-bottom: 5px;
+	}
+	&__unavailable {
+		color: var(--red-text);
+		font-weight: 500;
+		font-size: 15px;
+		max-width: 150px;
+		margin: 0 auto;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.product-info {
+		&__body {
+			grid-template-columns: 1fr;
+		}
+		&__info {
+			order: 1;
+		}
+		&__actions {
+			order: 3;
+			padding-top: 15px;
+		}
+		&__description {
+			grid-column: span 1;
+			order: 2;
+		}
+	}
+
+	.info-actions {
+		&__button {
+			padding-top: 25px;
+		}
+		&__unavailable {
+			max-width: 100%;
+			margin: 0 auto;
+			text-align: left;
+		}
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.product-info {
+		&__inner {
+			display: block;
+		}
+		&__gallery {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.product-info {
+		&__title {
+			font-size: 24px;
+		}
+	}
+}

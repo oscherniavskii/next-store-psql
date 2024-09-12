@@ -1,0 +1,340 @@
+:root {
+	//===Container config=====
+	--min-screen-width: 320px;
+	--container: 1250px;
+	--container-padding: 15px;
+
+	//===PROJECT VARS==========
+	--primary-color: #ff9902;
+	--secondary-color: #1c7488;
+
+	--bg-color: #f2f2f5;
+	--disabled-color: rgba(242, 242, 245, 0.6);
+	--items-bg-color: #ffffff;
+
+	// --primary-text: #141515;
+	--primary-text: #394453;
+	--secondary-text: #434443;
+	--white-text: #feffff;
+	--green-text: #18864b;
+	--red-text: #f14635;
+
+	--scroll-bg: #1c7488;
+	--scroll-thumb: #ff9902;
+
+	--icon-primary-color: #ff9902;
+	--icon-secondary-color: #c0c0c0;
+}
+
+$root-font-size: 16px;
+$font-family: var(--font-roboto);
+$font-weght: 400;
+$main-FZ-Color: var(--primary-text);
+$main-BG-Color: var(--bg-color);
+$line-height: 1.5;
+
+/* Reset styles ==================================*/
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+input,
+button,
+textarea {
+	font-family: $font-family;
+	font-size: inherit;
+}
+button {
+	cursor: pointer;
+	color: inherit;
+	background-color: inherit;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+/* Global settings ================================*/
+html,
+body {
+	height: 100%;
+	min-width: var(--min-screen-width);
+}
+body {
+	font-family: $font-family;
+	font-size: $root-font-size;
+	font-weight: $font-weght;
+	color: $main-FZ-Color;
+	background-color: $main-BG-Color;
+	line-height: $line-height;
+	//text-rendering: optimizeLegibility;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body._lock {
+	overflow: hidden;
+	touch-action: none;
+	overscroll-behavior: none;
+	padding-right: 12px;
+}
+
+@media screen and (max-width: 992px) {
+	body._lock {
+		padding-right: 0;
+	}
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: hidden;
+	position: relative;
+	// Фикс для слайдеров
+	> * {
+		min-width: 0;
+	}
+}
+
+main {
+	flex: 1 1 auto;
+}
+
+.footer {
+	flex: 0 0 auto;
+}
+
+[class*='__container'] {
+	max-width: calc(var(--container) + var(--container-padding) * 2);
+	margin: 0 auto;
+	padding: 0px var(--container-padding);
+}
+
+//--------------------------------------------------------
+
+body::-webkit-scrollbar {
+	width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+	background-color: var(--scroll-bg);
+	// border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: var(--scroll-thumb);
+	border-radius: 5px;
+}
+
+//--------------------------------------------------------
+.cart-menu__list::-webkit-scrollbar {
+	width: 10px;
+}
+
+.cart-menu__list::-webkit-scrollbar-track {
+	background-color: var(--scroll-bg);
+}
+
+.cart-menu__list::-webkit-scrollbar-thumb {
+	background-color: var(--scroll-thumb);
+	border-radius: 5px;
+}
+//--------------------------------------------------------
+.gallery-scroll::-webkit-scrollbar {
+	height: 8px;
+	cursor: pointer;
+}
+
+.gallery-scroll::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb {
+	background-color: var(--secondary-color);
+	border-radius: 5px;
+}
+//--------------------------------------------------------
+.review-form__textarea::-webkit-scrollbar {
+	width: 10px;
+}
+
+.review-form__textarea::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.review-form__textarea::-webkit-scrollbar-thumb {
+	background-color: var(--scroll-thumb);
+	border-radius: 5px;
+}
+//--------------------------------------------------------
+.history-dialog__wrapper::-webkit-scrollbar {
+	width: 10px;
+}
+
+.history-dialog__wrapper::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.history-dialog__wrapper::-webkit-scrollbar-thumb {
+	background-color: var(--secondary-color);
+	border-radius: 5px;
+}
+//--------------------------------------------------------
+.disabled {
+	pointer-events: none;
+	cursor: default;
+	text-decoration: none;
+	opacity: 0.2 !important;
+}
+
+.open-menu {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.close-menu {
+	opacity: 0;
+	transform: scale(0.8);
+	pointer-events: none;
+}
+//--------------------------------------------------------
+
+.message {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	row-gap: 30px;
+	text-align: center;
+}
+
+.text {
+	font-size: 32px;
+	color: var(--secondary-color);
+	font-weight: 600;
+}
+
+.link {
+	font-size: 18px;
+	text-align: center;
+	color: var(--primary-color);
+	transition: color 0.3s ease-in-out;
+	font-weight: 600;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+@keyframes scaleIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	50% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.error {
+	color: var(--red-text) !important;
+}
+
+//------------------------------------------------
+
+form {
+	& p[role='alert'] {
+		color: var(--red-text);
+		font-size: 12px;
+		padding-top: 3px;
+	}
+}
+
+//------------------------------------------------
+
+.not-found {
+	min-height: 100vh;
+	padding: 15px;
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	&__404 {
+		font-weight: 900;
+		font-size: 240px;
+		line-height: 1;
+		color: var(--secondary-color);
+	}
+	&__title {
+		font-weight: 600;
+		font-size: 40px;
+		margin-bottom: 10px;
+	}
+	&__text {
+		font-weight: 500;
+		font-size: 20px;
+		color: var(--icon-secondary-color);
+		margin-bottom: 30px;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.not-found {
+		&__404 {
+			font-size: 160px;
+		}
+		&__title {
+			font-size: 30px;
+		}
+		&__text {
+			font-size: 18px;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.not-found {
+		&__404 {
+			font-size: 140px;
+		}
+		&__title {
+			font-size: 26px;
+		}
+		&__text {
+			font-size: 16px;
+			margin-bottom: 30px;
+		}
+	}
+}

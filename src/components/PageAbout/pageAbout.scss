@@ -1,0 +1,153 @@
+.about-page {
+	&__main-section {
+	}
+	&__contact-section {
+	}
+	&__map-section {
+	}
+}
+.about-main-section {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	column-gap: 40px;
+	margin-bottom: 40px;
+	&__content {
+		p {
+			&:not(:last-child) {
+				margin-bottom: 16px;
+			}
+			span {
+				font-weight: 600;
+				color: var(--primary-color);
+				font-size: 18px;
+			}
+		}
+	}
+	&__cover {
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: relative;
+		border-radius: 16px;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+.about-contact-section {
+	margin-bottom: 40px;
+	&__content {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 20px;
+	}
+	&__block {
+	}
+	&__title {
+		font-weight: 600;
+		font-size: 18px;
+		color: var(--secondary-color);
+		margin-bottom: 7px;
+	}
+	&__list {
+	}
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 5px;
+		}
+	}
+	&__link {
+		transition: color 0.3s ease-in-out;
+		&:hover {
+			color: var(--primary-color);
+		}
+	}
+	&__text {
+	}
+}
+
+.about-map-section {
+	&__content {
+		width: 100%;
+		height: 400px;
+		border-radius: 16px;
+		overflow: hidden;
+		iframe {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.about-main-section {
+		display: block;
+		margin-bottom: 30px;
+		&__content {
+			margin-bottom: 20px;
+		}
+		&__cover {
+			max-height: 500px;
+		}
+	}
+	.about-contact-section {
+		margin-bottom: 30px;
+		&__content {
+			grid-template-columns: repeat(2, 1fr);
+			row-gap: 30px;
+		}
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.about-main-section {
+		margin-bottom: 20px;
+		&__content {
+			p {
+				font-size: 14px;
+				&:not(:last-child) {
+					margin-bottom: 12px;
+				}
+				span {
+					font-size: 16px;
+					display: inline-block;
+				}
+			}
+		}
+		&__cover {
+			border-radius: 8px;
+		}
+	}
+	.about-contact-section {
+		margin-bottom: 20px;
+		&__content {
+			display: block;
+		}
+		&__block {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
+		}
+		&__title {
+			font-size: 17px;
+			margin-bottom: 5px;
+		}
+		&__link {
+			font-size: 15px;
+		}
+		&__text {
+			font-size: 15px;
+		}
+	}
+	.about-map-section {
+		&__content {
+			height: 320px;
+			border-radius: 8px;
+		}
+	}
+}

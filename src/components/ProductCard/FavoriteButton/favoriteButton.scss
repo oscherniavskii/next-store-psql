@@ -1,0 +1,23 @@
+.favorite-button {
+	padding: 7px;
+	background-color: var(--bg-color);
+	border-radius: 5px;
+	&__btn {
+		display: block;
+		width: 20px;
+		height: 20px;
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			path {
+				fill: var(--icon-secondary-color);
+			}
+			&.favorite-button__added {
+				path {
+					fill: var(--icon-primary-color);
+				}
+			}
+		}
+	}
+}

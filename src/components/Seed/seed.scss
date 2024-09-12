@@ -1,0 +1,10 @@
+.seed {
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+		& button {
+			font-weight: 600;
+		}
+	}
+}

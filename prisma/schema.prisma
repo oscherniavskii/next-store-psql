@@ -1,0 +1,147 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  email      String  @unique
+  password   String
+
+  isAdmin Boolean @default(false)
+
+  isActivate Boolean @default(false)
+  activateLink String @unique
+
+  firstName  String
+  lastName  String
+  phone      String  @default("")
+  deliveryAdress  String @default("")
+  policy Boolean
+
+  orders    Order[]
+  reviews   Review[]
+
+  favorites Product[]
+}
+
+model Product {
+  id        Int      @id @default(autoincrement())
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name        String   @unique
+  nameS       String
+  slug        String   @unique
+  description String
+  descriptionS String
+  price       Float @default(0.00)
+  oldPrice    Float @default(0.00)
+  images      String
+  rating      Float @default(0.00)
+
+  options String?
+
+  availability Boolean @default(true)
+  orderItems OrderItem[]
+  reviews    Review[]
+
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId Int?
+
+  brand   Brand? @relation(fields: [brandId], references: [id], onDelete: Cascade)
+  brandId Int?
+
+  user   User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId Int?
+
+  history  String
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name String @unique
+  nameS       String
+  slug String @unique
+  cover String?
+  priority Int @default(0)
+
+  products Product[]
+
+  history  String
+}
+
+model Brand {
+  id        Int      @id @default(autoincrement())
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name String @unique
+  nameS       String
+  slug String @unique
+
+  products Product[]
+
+  history  String
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  rating Int
+  text   String
+
+  user   User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId Int?
+
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  status String @default("PENDING")
+  items  OrderItem[]
+
+  total Int
+  name String?
+  email String?
+
+  user   User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId Int?
+}
+
+model OrderItem {
+  id        Int      @id @default(autoincrement())
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  quantity Int
+  price    Int
+  name     String?
+
+  order   Order? @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId Int?
+
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productId Int?
+}
+
